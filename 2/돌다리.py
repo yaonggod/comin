@@ -1,3 +1,4 @@
+# https://www.acmicpc.net/problem/12761
 from collections import deque
 a, b, n, m = map(int, input().split())
 stone = [0] * 100001
