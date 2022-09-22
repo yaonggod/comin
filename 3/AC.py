@@ -2,7 +2,7 @@
 from collections import deque
 import sys
 sys.stdin = open('AC.txt')
-# input = sys.stdin.readline
+input = sys.stdin.readline
 t = int(input())
 for _ in range(t):
     error = False

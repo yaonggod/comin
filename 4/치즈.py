@@ -24,43 +24,20 @@ def findposition(h, w, x : str):
             
 start_x = findposition(h, w, 'S')[0]
 start_y = findposition(h, w, 'S')[1]
-
 moves = 0
 dx = [-1, 1, 0, 0]
 dy = [0, 0, -1, 1]
 
-# 둥지에서 1번까지
-visited = [[-1] * w for _ in range(h)]
-visited[start_x][start_y] = 0
-queue = deque([[start_x, start_y]])
-while True:
-    k = queue.popleft()
-    x = k[0]
-    y = k[1]
-    if k == findposition(h, w, '1'):
-        moves += visited[x][y]
-        break
-    for d in range(4):
-        nx = x + dx[d]
-        ny = y + dy[d]
-        if 0 <= nx < h and 0 <= ny < w and cheese[nx][ny] != 'X' and visited[nx][ny] == -1:
-            visited[nx][ny] = visited[x][y] + 1
-            queue.append([nx, ny])
-
-# 번호 간 이동
-for i in range(1, n):
+def bfs(x, y, target : str):
     visited = [[-1] * w for _ in range(h)]
-    i_x = findposition(h, w, str(i))[0]
-    i_y = findposition(h, w, str(i))[1]
-    visited[i_x][i_y] = 0
-    queue = deque([[i_x, i_y]])
+    visited[x][y] = 0
+    queue = deque([[x, y]])
     while True:
         k = queue.popleft()
         x = k[0]
         y = k[1]
-        if k == findposition(h, w, str(i + 1)):
-            moves += visited[x][y]
-            break
+        if cheese[x][y] == target:
+            return x, y, visited[x][y]
         for d in range(4):
             nx = x + dx[d]
             ny = y + dy[d]
@@ -68,11 +45,14 @@ for i in range(1, n):
                 visited[nx][ny] = visited[x][y] + 1
                 queue.append([nx, ny])
                 
+x, y, move = bfs(start_x, start_y, '1')
+moves += move
+
+for i in range(1, n):
+    x, y, move = bfs(x, y, str(i + 1))
+    moves += move
+
 print(moves)
-    
-    
-    
- 
 
 
 
