@@ -12,34 +12,6 @@ for i in range(2, 10000):
         while i * j < 10000:
             prime[i * j] = False
             j += 1
-
-# def backtracking(n):
-#     global result
-#     if a == b:
-#         result = n
-#     else:
-#         for i in range(4):
-#             if i == 0:
-#                 for j in range(1, 10):
-#                     if a[i] != str(j):
-#                         temp = a[i]
-#                         a[i] = str(j)
-#                         if prime[int(''.join(a))] and (visited[int(''.join(a))] == -1 or visited[int(''.join(a))] > n + 1):
-#                             visited[int(''.join(a))] = n + 1
-#                             # print(i, n + 1, int(''.join(a)))
-#                             backtracking(n + 1)
-#                         a[i] = temp
-
-#             else:
-#                 for j in range(10):
-#                     if a[i] != str(j):
-#                         temp = a[i]
-#                         a[i] = str(j)
-#                         if prime[int(''.join(a))] and (visited[int(''.join(a))] == -1 or visited[int(''.join(a))] > n + 1):
-#                             visited[int(''.join(a))] = n + 1
-#                             # print(i, n + 1, int(''.join(a)))
-#                             backtracking(n + 1)
-#                         a[i] = temp
                     
 def bfs(a):
     global result
