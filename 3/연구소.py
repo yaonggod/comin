@@ -31,7 +31,7 @@ for c in walls_comb:
     # 딥카피를 해야 원본 lab이 변하질 않음
     new_lab = deepcopy(lab)
     make_new_walls(c, new_lab)
-    # 감영시키기
+    # 감염시키기
     for i in range(n):
         for j in range(m):
             if new_lab[i][j] == 2:
